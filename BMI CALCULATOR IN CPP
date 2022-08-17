@@ -1,5 +1,6 @@
 // BMIcalculator.cpp
 // Calculates the Body Mass Index of a user and gives a little prognosis
+// Happy codint
 // ----------------------------------------------------------------------------
 
 #include <iostream>
