@@ -1,0 +1,74 @@
+// BMIcalculator.cpp
+// Calculates the Body Mass Index of a user and gives a little prognosis
+// ----------------------------------------------------------------------------
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+int prognosis( float i_bmi);
+inline void endProg(void);
+
+int main()
+{
+	float mass, height, bmi;
+	string line(50, '-');
+	
+	cout << "\nWelcome to Body Mass Index (BMI) Calculator\n"
+		<< endl << line << endl;	// welcome note
+	
+	cout << "\nEnter your mass (kilogram):\t";	cin >> mass;
+	cout << "\nEnter your height (metre):\t";	cin >> height;
+	
+	bmi = mass / height;	// calculate the BMI
+	
+	cout << "\nYour BMI is\t" << setprecision(1) << fixed << bmi << endl;
+	prognosis(bmi);
+	
+	cout << endl << endl << line << endl;
+	cout << "\nNOTE: BMI calculations apply best to adults (18 years above).\n"
+			<< endl << line << endl;
+	
+	endProg();
+	
+	return 0;
+}
+
+inline void endProg(void)
+{
+	// this is just to keep the program waiting until the user decides to quit
+	cout << "\nEnter anything to quit ... ";
+	getchar();
+}
+
+int prognosis( float i_bmi)
+{
+	if( i_bmi < 18.5)
+	{
+		cout << "\nWarning! You are underweight.\
+				\nContact your doctor for proper rehabilitation.";
+		return 0;
+	}
+	
+	if( i_bmi >= 18.5 and i_bmi <= 24.9)
+	{
+		cout << "\nCongratulations!!\
+				\nYou have a normal weight.\nKeep maintaining good health.";
+		return 0;
+	}
+	
+	if( i_bmi >= 25 and i_bmi <= 29.9)
+	{
+		cout << "\nCaution!!\
+				\nYou are overweight.\nEnsure to take medical advice for correction.";
+		return 0;
+	}
+	
+	if( i_bmi >= 30)
+	{
+		cout << "\nWarning!!\
+				\nYou are obese.\nYou have to seek medical advice promptly.";
+		return 0;
+	}
+}
